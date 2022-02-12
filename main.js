@@ -40,6 +40,8 @@ function buyClickUpgrade(upgradeName) {
   // console.log(upgrade);
   document.getElementById('axe-count').innerText = clickUpgrades.pickaxes.quantity
   document.getElementById('tnt-count').innerText = clickUpgrades.dynamite.quantity
+  // console.log(upgradedClick);
+  drawStats()
 }
 
 function buyAutoUpgrade(upgradeName) {
@@ -48,6 +50,7 @@ function buyAutoUpgrade(upgradeName) {
   // console.log(upgrade);
   document.getElementById('rover-count').innerText = automaticUpgrades.rovers.quantity
   document.getElementById('harvest-count').innerText = automaticUpgrades.harvesters.quantity
+  drawStats()
 }
 
 function increaseMine() {
@@ -63,6 +66,16 @@ function runAutoUpgrades() {
     cheese += (upgrade.quantity * upgrade.multiplier)
   }
   document.getElementById('cheese-count').innerText = cheese
+}
+
+function drawStats() {
+  let upgradedDynamite = (clickUpgrades.dynamite.multiplier * clickUpgrades.dynamite.quantity)
+  let upgradedPickaxe = (clickUpgrades.pickaxes.multiplier * clickUpgrades.pickaxes.quantity)
+  let upgradedRover = (automaticUpgrades.rovers.multiplier * automaticUpgrades.rovers.quantity)
+  let upgradedHarvester = (automaticUpgrades.harvesters.multiplier * automaticUpgrades.harvesters.quantity)
+  // console.log(upgradedDynamite + upgradedPickaxe + 1);
+  document.getElementById('click-collect').innerText = (upgradedDynamite + upgradedPickaxe + 1)
+  document.getElementById('auto-collect').innerText = (upgradedRover + upgradedHarvester)
 }
 
 
