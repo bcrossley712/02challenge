@@ -26,6 +26,7 @@ let automaticUpgrades = {
   }
 };
 
+
 let cheese = 0
 
 function mine() {
@@ -64,7 +65,7 @@ function buyAutoUpgrade(upgradeName) {
 function increaseMine() {
   for (let key in clickUpgrades) {
     let upgrade = clickUpgrades[key]
-    cheese += (upgrade.quantity * upgrade.multiplier)
+    cheese += upgrade.quantity * upgrade.multiplier
   }
 }
 
@@ -77,6 +78,16 @@ function runAutoUpgrades() {
 }
 
 function drawStats() {
+  //NOTE to get this to work I would have to change the ID naming conventions to match the key
+  // for (let key in automaticUpgrades) {
+  //   document.getElementById(key + "-count").innerHTML = automaticUpgrades[key].quantity
+  //   document.getElementById(key).innerHTML = automaticUpgrades[key].price
+  // }
+  // for (let key in clickUpgrades) {
+  //   document.getElementById(key + "-count").innerHTML = automaticUpgrades[key].quantity
+  //   document.getElementById(key).innerHTML = automaticUpgrades[key].price
+  // }
+
   //NOTE Inventory tracker update
   document.getElementById('cheese-count').innerText = cheese
   document.getElementById('axe-count').innerText = clickUpgrades.pickaxes.quantity
